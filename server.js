@@ -4,11 +4,11 @@ import app from "./app.js";
 
 mongooes.connect(MONGODB_URL)
     .then(() => {
+        console.log("\x1b[32m%s\x1b[0m", "✅ Database connected successfully");
         app.listen(PORT, () => {
-
-            console.log("server runimg ");
+            console.log(`🚀 Server is running on http://localhost:${PORT}`);
         })
     })
-    .catch((err) => {
-        console.log(err)
+    .catch((error) => {
+        console.error("❌ Database connection failed:", error.message);
     })
